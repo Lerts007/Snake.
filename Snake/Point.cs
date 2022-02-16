@@ -12,7 +12,12 @@ namespace Snake
         public int _y;
         public char _ch;
 
-        public Point() { }
+        public Point(Point a) 
+        {
+            _x = a._x;
+            _y = a._y;
+            _ch = a._ch;
+        }
         public Point(int x, int y, char ch)
         {
             _x = x;
@@ -20,19 +25,22 @@ namespace Snake
             _ch = ch;
         }
 
-        public void Draw()
+        public void Move (int offset, Direction direction)
         {
-            DrawPoint(_ch);
-        }
-        public void Remove()
-        {
-            DrawPoint(' ');
+            if (direction == Direction.RIGHT)
+                _x += offset;
+            if(direction == Direction.LEFT)
+                _x -= offset;
+            if(direction == Direction.UP)
+                _x += offset;
+            if(direction == Direction.DOWN)
+                _x -= offset;
         }
 
-        private void DrawPoint (char ch)
+        public void Draw()
         {
             Console.SetCursorPosition(_x, _y);
-            Console.Write(ch);
+            Console.Write(_ch);
         }
     }
 }
