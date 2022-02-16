@@ -9,7 +9,7 @@ namespace Snake
     internal class Snake
     {
         private List<Point> snake = new List<Point>();
-        Direction _direction;
+        public Direction _direction;
         public Snake(Point tail, int lenght, Direction direction)
         {
             _direction = direction;

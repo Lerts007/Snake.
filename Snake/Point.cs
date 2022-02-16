@@ -32,9 +32,9 @@ namespace Snake
             if(direction == Direction.LEFT)
                 _x -= offset;
             if(direction == Direction.UP)
-                _x += offset;
+                _y -= offset;
             if(direction == Direction.DOWN)
-                _x -= offset;
+                _y += offset;
         }
 
         public void Draw()
