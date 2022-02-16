@@ -39,8 +39,18 @@ namespace Snake
 
         public void Draw()
         {
+            DrawPoint(_ch);
+        }
+
+        public void Clear()
+        {
+            DrawPoint(' ');
+        }
+
+        public void DrawPoint(char ch)
+        {
             Console.SetCursorPosition(_x, _y);
-            Console.Write(_ch);
+            Console.Write(ch);
         }
     }
 }
