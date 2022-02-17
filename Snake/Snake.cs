@@ -55,8 +55,24 @@ namespace Snake
                 return true;                
             }
             return false;
-                
+        }
 
+        public bool Colision(List<Point> wall)
+        {
+            foreach(Point p in wall)
+            {
+                Point pS = snake.Last();
+                if (p == pS)
+                    return true;
+
+                for (int i = 0; i < snake.Count - 1; i++)
+                {
+                    if (snake[i] == pS)
+                        return true;
+                }
+            }
+
+            return false;
         }
 
         public void SnakeControl (ConsoleKey key)

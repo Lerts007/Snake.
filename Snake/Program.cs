@@ -31,11 +31,24 @@ namespace Snake
                     ConsoleKeyInfo key = Console.ReadKey();
                     snake.SnakeControl(key.Key);
                 }
+
+                //движение змейки
                 snake.Move();
+
+                //проверка на еду
                 if (snake.Eat(food.p))
                     food.Draw();
-                Thread.Sleep(300);
+
+                if(snake.Colision(wall.Walls))
+                {
+                    Console.Clear();
+                    Console.WriteLine("Game over");
+                    break;
+                }
+                Thread.Sleep(200);
             }
+
+            Console.WriteLine("Конец игры");
         }
     }
 }

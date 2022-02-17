@@ -8,7 +8,7 @@ namespace Snake
 {
     internal class Wall
     {
-        private List<Point> Walls = new List<Point>();
+        public List<Point> Walls = new List<Point>();
 
         public Wall(int x, int y, char ch)
         {
