@@ -52,5 +52,21 @@ namespace Snake
             Console.SetCursorPosition(_x, _y);
             Console.Write(ch);
         }
+
+        public static bool operator == (Point p1, Point p2)
+        {
+           if(p1._x == p2._x &&
+                p1._y == p2._y)
+                return true;
+           return false;
+        }
+
+        public static bool operator != (Point p1, Point p2)
+        {
+            if (p1._x != p2._x &&
+                p1._y != p2._y)
+                return true;
+            return false;
+        }
     }
 }

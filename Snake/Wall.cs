@@ -20,7 +20,7 @@ namespace Snake
 
         private void HorizontalLine(int x, int y, char ch)
         {
-            for (int i = 0; i < x; i++)
+            for (int i = 0; i <= x; i++)
             {
                 Point p = new Point(i, y, ch);
                 p.Draw();
@@ -30,7 +30,7 @@ namespace Snake
 
         private void VerticalLine(int x, int y, char ch)
         {
-            for (int i = 0; i < y; i++)
+            for (int i = 0; i <= y; i++)
             {
                 Point p = new Point(x, i, ch);
                 p.Draw();

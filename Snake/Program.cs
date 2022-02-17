@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Linq;
 using System.Drawing;
 
 namespace Snake
@@ -8,31 +9,33 @@ namespace Snake
     {
         static void Main()
         {
+            Console.SetBufferSize(120, 26);
+            Console.WindowHeight = 26;
+            Console.WindowWidth = 120;
 
-            Wall wall = new Wall(119, 29, '#');
+            //Создание стены
+            Wall wall = new Wall(119, 25, '#');
 
+            //Создание еды
+            FoodSnake food = new FoodSnake();
+
+            //Создание змейки
             Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p, 4, Direction.RIGHT);
 
+            //Сама игра
             while (true)
             {
                 if(Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
-                    if (key.Key == ConsoleKey.UpArrow)
-                        snake._direction = Direction.UP;
-                    else if (key.Key == ConsoleKey.DownArrow)
-                        snake._direction = Direction.DOWN;
-                    else if (key.Key == ConsoleKey.LeftArrow)
-                        snake._direction = Direction.LEFT;
-                    else
-                        snake._direction = Direction.RIGHT;
+                    snake.SnakeControl(key.Key);
                 }
-
                 snake.Move();
+                if (snake.Eat(food.p))
+                    food.Draw();
                 Thread.Sleep(300);
             }
         }
     }
-    
 }
